@@ -283,11 +283,13 @@ private struct ICloudMailConnectionView: View {
                     }
                 }
 
-                Section("3. アプリ用パスワード") {
+                Section {
                     SecureField("xxxx-xxxx-xxxx-xxxx", text: $appSpecificPassword)
                         .textContentType(.password)
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()
+                } header: {
+                    Text("3. アプリ用パスワード")
                 } footer: {
                     Text("メールアドレスとアプリ用パスワードはKeychainに保存し、UserDefaultsやSwiftDataには保存しません。")
                 }
