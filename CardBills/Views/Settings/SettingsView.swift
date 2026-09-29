@@ -42,13 +42,15 @@ struct SettingsView: View {
                     LabeledContent("購入方式", value: "買い切り")
                 }
 
-                Section("メール連携") {
+                Section {
                     MailIntegrationControls()
+                } header: {
+                    Text("メール連携")
                 } footer: {
                     Text("メールを一度連携。アプリを開くだけでクレカ請求を自動チェックします。手入力とメール本文の貼り付けも利用できます。")
                 }
 
-                Section("テーマ") {
+                Section {
                     if proStore.isPro {
                         Picker("テーマカラー", selection: $themeManager.selectedPreset) {
                             ForEach(AppThemePreset.allCases) { preset in
@@ -79,6 +81,8 @@ struct SettingsView: View {
                         }
                         .accessibilityHint("Mail Ledger Proで6色のテーマから選べます")
                     }
+                } header: {
+                    Text("テーマ")
                 } footer: {
                     Text(proStore.isPro
                          ? "ライト・ダーク対応のプリセットから選べます。選ぶとアプリ全体へすぐに反映されます。"
@@ -115,7 +119,7 @@ struct SettingsView: View {
                     }
                 }
 
-                Section("データ") {
+                Section {
                     Button {
                         if hasData {
                             showsDemoDataAlert = true
@@ -132,6 +136,8 @@ struct SettingsView: View {
                         Label("すべてのデータを削除", systemImage: "trash")
                     }
                     .disabled(!hasData)
+                } header: {
+                    Text("データ")
                 } footer: {
                     Text("カードと請求は、この端末のアプリ内だけに保存されます。")
                 }
