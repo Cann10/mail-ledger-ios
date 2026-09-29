@@ -1,0 +1,2 @@
+// Unconfigured portfolio default. Replace locally to test StoreKit purchases.
+PRO_PRODUCT_ID = dev.example.mailledger.pro.not-configured

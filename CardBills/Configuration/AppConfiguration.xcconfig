@@ -1,0 +1,3 @@
+#include "GmailOAuth.xcconfig"
+#include "AdMob.xcconfig"
+#include "StoreKit.xcconfig"

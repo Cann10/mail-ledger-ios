@@ -1,0 +1,7 @@
+// Safe build defaults. The app stays usable without Gmail when these remain unchanged.
+GMAIL_OAUTH_CLIENT_ID = gmail-oauth-not-configured.apps.googleusercontent.com
+GMAIL_OAUTH_REDIRECT_SCHEME = com.googleusercontent.apps.gmail-oauth-not-configured
+
+// Create GmailOAuth.local.xcconfig beside this file from the provided example.
+// The optional include keeps clean checkouts buildable without local OAuth values.
+#include? "GmailOAuth.local.xcconfig"

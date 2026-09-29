@@ -1,0 +1,7 @@
+// Safe development defaults from Google's official iOS test configuration.
+ADMOB_APP_ID = ca-app-pub-3940256099942544~1458002511
+ADMOB_HOME_BANNER_AD_UNIT_ID = ca-app-pub-3940256099942544/2435281174
+
+// Create AdMob.local.xcconfig beside this file for release values.
+// The optional include keeps clean checkouts on official test IDs.
+#include? "AdMob.local.xcconfig"

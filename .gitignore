@@ -1,0 +1,13 @@
+# Local OAuth values. Keep the template, never commit the configured file.
+CardBills/Configuration/GmailOAuth.local.xcconfig
+CardBills/Configuration/AdMob.local.xcconfig
+
+# Release-time values entered in browser services (Apple / Google). Keep the .example.
+RELEASE_CONFIG.local
+
+# Xcode user state and build output
+xcuserdata/
+DerivedData/
+*.xcuserstate
+outputs/
+work/

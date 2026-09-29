@@ -1,0 +1,4 @@
+// Copy this file to AdMob.local.xcconfig. The copied file is gitignored.
+// App IDs and ad unit IDs are public configuration, not secrets.
+ADMOB_APP_ID = ca-app-pub-xxxxxxxxxxxxxxxx~yyyyyyyyyy
+ADMOB_HOME_BANNER_AD_UNIT_ID = ca-app-pub-xxxxxxxxxxxxxxxx/zzzzzzzzzz

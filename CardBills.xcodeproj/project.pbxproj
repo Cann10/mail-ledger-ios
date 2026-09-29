@@ -1,0 +1,648 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A00000000000000000000101 /* CardBillsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000201 /* CardBillsApp.swift */; };
+		A00000000000000000000102 /* PaymentCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000202 /* PaymentCard.swift */; };
+		A00000000000000000000103 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000203 /* Bill.swift */; };
+		A00000000000000000000104 /* EmailBillingParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000204 /* EmailBillingParser.swift */; };
+		A00000000000000000000105 /* DemoDataSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000205 /* DemoDataSeeder.swift */; };
+		A00000000000000000000106 /* AppSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000206 /* AppSupport.swift */; };
+		A00000000000000000000107 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000207 /* RootTabView.swift */; };
+		A00000000000000000000108 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000208 /* HomeView.swift */; };
+		A00000000000000000000109 /* BillEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000209 /* BillEditorView.swift */; };
+		A0000000000000000000010A /* EmailImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000020A /* EmailImportView.swift */; };
+		A0000000000000000000010B /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000020B /* CardsView.swift */; };
+		A0000000000000000000010C /* CardEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000020C /* CardEditorView.swift */; };
+		A0000000000000000000010D /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000020D /* HistoryView.swift */; };
+		A0000000000000000000010E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000020E /* SettingsView.swift */; };
+		A0000000000000000000010F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000020F /* Assets.xcassets */; };
+		A00000000000000000000110 /* EmailBillingParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000210 /* EmailBillingParserTests.swift */; };
+		A00000000000000000000111 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000213 /* PrivacyInfo.xcprivacy */; };
+		A00000000000000000000112 /* GmailOAuthConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000214 /* GmailOAuthConfiguration.swift */; };
+		A00000000000000000000113 /* GoogleNetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000215 /* GoogleNetworkSession.swift */; };
+		A00000000000000000000114 /* KeychainTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000216 /* KeychainTokenStore.swift */; };
+		A00000000000000000000115 /* GmailOAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000217 /* GmailOAuthClient.swift */; };
+		A00000000000000000000116 /* GmailAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000218 /* GmailAPIClient.swift */; };
+		A00000000000000000000117 /* CardCompanyBillingParsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000219 /* CardCompanyBillingParsers.swift */; };
+		A00000000000000000000118 /* GmailCardRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000021A /* GmailCardRules.swift */; };
+		A00000000000000000000119 /* GmailIntegrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000021B /* GmailIntegrationManager.swift */; };
+		A0000000000000000000011A /* GmailIntegrationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000021C /* GmailIntegrationViews.swift */; };
+		A0000000000000000000011B /* GmailImportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000021F /* GmailImportTests.swift */; };
+		A0000000000000000000011C /* AdConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000220 /* AdConfiguration.swift */; };
+		A0000000000000000000011D /* AdvertisingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000221 /* AdvertisingManager.swift */; };
+		A0000000000000000000011E /* AnchoredAdaptiveBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000222 /* AnchoredAdaptiveBannerView.swift */; };
+		A0000000000000000000011F /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = A00000000000000000000C01 /* GoogleMobileAds */; };
+		A00000000000000000000120 /* GoogleUserMessagingPlatform in Frameworks */ = {isa = PBXBuildFile; productRef = A00000000000000000000C02 /* GoogleUserMessagingPlatform */; };
+		A00000000000000000000121 /* ProProductConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000226 /* ProProductConfiguration.swift */; };
+		A00000000000000000000122 /* ProEntitlement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000227 /* ProEntitlement.swift */; };
+		A00000000000000000000123 /* ProStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000228 /* ProStore.swift */; };
+		A00000000000000000000124 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000229 /* ThemeManager.swift */; };
+		A00000000000000000000125 /* ProPaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000022A /* ProPaywallView.swift */; };
+		A00000000000000000000126 /* MailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000022C /* MailModels.swift */; };
+		A00000000000000000000127 /* ICloudMailCredentialStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000022D /* ICloudMailCredentialStore.swift */; };
+		A00000000000000000000128 /* ICloudIMAPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000022E /* ICloudIMAPClient.swift */; };
+		A00000000000000000000129 /* MailIntegrationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000022F /* MailIntegrationViews.swift */; };
+		A0000000000000000000012A /* ICloudMailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000230 /* ICloudMailTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A00000000000000000000301 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A00000000000000000000401 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A00000000000000000000501;
+			remoteInfo = CardBills;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A00000000000000000000201 /* CardBillsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBillsApp.swift; sourceTree = "<group>"; };
+		A00000000000000000000202 /* PaymentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/PaymentCard.swift; sourceTree = "<group>"; };
+		A00000000000000000000203 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Bill.swift; sourceTree = "<group>"; };
+		A00000000000000000000204 /* EmailBillingParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/EmailBillingParser.swift; sourceTree = "<group>"; };
+		A00000000000000000000205 /* DemoDataSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/DemoDataSeeder.swift; sourceTree = "<group>"; };
+		A00000000000000000000206 /* AppSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/AppSupport.swift; sourceTree = "<group>"; };
+		A00000000000000000000207 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/RootTabView.swift; sourceTree = "<group>"; };
+		A00000000000000000000208 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Home/HomeView.swift; sourceTree = "<group>"; };
+		A00000000000000000000209 /* BillEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Bills/BillEditorView.swift; sourceTree = "<group>"; };
+		A0000000000000000000020A /* EmailImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Bills/EmailImportView.swift; sourceTree = "<group>"; };
+		A0000000000000000000020B /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Cards/CardsView.swift; sourceTree = "<group>"; };
+		A0000000000000000000020C /* CardEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Cards/CardEditorView.swift; sourceTree = "<group>"; };
+		A0000000000000000000020D /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/History/HistoryView.swift; sourceTree = "<group>"; };
+		A0000000000000000000020E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Settings/SettingsView.swift; sourceTree = "<group>"; };
+		A0000000000000000000020F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A00000000000000000000210 /* EmailBillingParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailBillingParserTests.swift; sourceTree = "<group>"; };
+		A00000000000000000000211 /* CardBills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardBills.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A00000000000000000000212 /* CardBillsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardBillsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A00000000000000000000213 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		A00000000000000000000214 /* GmailOAuthConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gmail/GmailOAuthConfiguration.swift; sourceTree = "<group>"; };
+		A00000000000000000000215 /* GoogleNetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gmail/GoogleNetworkSession.swift; sourceTree = "<group>"; };
+		A00000000000000000000216 /* KeychainTokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gmail/KeychainTokenStore.swift; sourceTree = "<group>"; };
+		A00000000000000000000217 /* GmailOAuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gmail/GmailOAuthClient.swift; sourceTree = "<group>"; };
+		A00000000000000000000218 /* GmailAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gmail/GmailAPIClient.swift; sourceTree = "<group>"; };
+		A00000000000000000000219 /* CardCompanyBillingParsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gmail/CardCompanyBillingParsers.swift; sourceTree = "<group>"; };
+		A0000000000000000000021A /* GmailCardRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gmail/GmailCardRules.swift; sourceTree = "<group>"; };
+		A0000000000000000000021B /* GmailIntegrationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gmail/GmailIntegrationManager.swift; sourceTree = "<group>"; };
+		A0000000000000000000021C /* GmailIntegrationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Gmail/GmailIntegrationViews.swift; sourceTree = "<group>"; };
+		A0000000000000000000021D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0000000000000000000021E /* GmailOAuth.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Configuration/GmailOAuth.xcconfig; sourceTree = "<group>"; };
+		A0000000000000000000021F /* GmailImportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GmailImportTests.swift; sourceTree = "<group>"; };
+		A00000000000000000000220 /* AdConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertising/AdConfiguration.swift; sourceTree = "<group>"; };
+		A00000000000000000000221 /* AdvertisingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertising/AdvertisingManager.swift; sourceTree = "<group>"; };
+		A00000000000000000000222 /* AnchoredAdaptiveBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertising/AnchoredAdaptiveBannerView.swift; sourceTree = "<group>"; };
+		A00000000000000000000223 /* AppConfiguration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Configuration/AppConfiguration.xcconfig; sourceTree = "<group>"; };
+		A00000000000000000000224 /* AdMob.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Configuration/AdMob.xcconfig; sourceTree = "<group>"; };
+		A00000000000000000000225 /* AdMob.local.xcconfig.example */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Configuration/AdMob.local.xcconfig.example; sourceTree = "<group>"; };
+		A00000000000000000000226 /* ProProductConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pro/ProProductConfiguration.swift; sourceTree = "<group>"; };
+		A00000000000000000000227 /* ProEntitlement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pro/ProEntitlement.swift; sourceTree = "<group>"; };
+		A00000000000000000000228 /* ProStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pro/ProStore.swift; sourceTree = "<group>"; };
+		A00000000000000000000229 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pro/ThemeManager.swift; sourceTree = "<group>"; };
+		A0000000000000000000022A /* ProPaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Pro/ProPaywallView.swift; sourceTree = "<group>"; };
+		A0000000000000000000022B /* StoreKit.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Configuration/StoreKit.xcconfig; sourceTree = "<group>"; };
+		A0000000000000000000022C /* MailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mail/MailModels.swift; sourceTree = "<group>"; };
+		A0000000000000000000022D /* ICloudMailCredentialStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloud/ICloudMailCredentialStore.swift; sourceTree = "<group>"; };
+		A0000000000000000000022E /* ICloudIMAPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloud/ICloudIMAPClient.swift; sourceTree = "<group>"; };
+		A0000000000000000000022F /* MailIntegrationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Mail/MailIntegrationViews.swift; sourceTree = "<group>"; };
+		A00000000000000000000230 /* ICloudMailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudMailTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A00000000000000000000601 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0000000000000000000011F /* GoogleMobileAds in Frameworks */,
+				A00000000000000000000120 /* GoogleUserMessagingPlatform in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A00000000000000000000602 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A00000000000000000000701 = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000702 /* CardBills */,
+				A00000000000000000000703 /* CardBillsTests */,
+				A00000000000000000000704 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A00000000000000000000702 /* CardBills */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000201 /* CardBillsApp.swift */,
+				A00000000000000000000202 /* PaymentCard.swift */,
+				A00000000000000000000203 /* Bill.swift */,
+				A00000000000000000000204 /* EmailBillingParser.swift */,
+				A00000000000000000000205 /* DemoDataSeeder.swift */,
+				A00000000000000000000206 /* AppSupport.swift */,
+				A00000000000000000000207 /* RootTabView.swift */,
+				A00000000000000000000208 /* HomeView.swift */,
+				A00000000000000000000209 /* BillEditorView.swift */,
+				A0000000000000000000020A /* EmailImportView.swift */,
+				A0000000000000000000020B /* CardsView.swift */,
+				A0000000000000000000020C /* CardEditorView.swift */,
+				A0000000000000000000020D /* HistoryView.swift */,
+				A0000000000000000000020E /* SettingsView.swift */,
+				A00000000000000000000214 /* GmailOAuthConfiguration.swift */,
+				A00000000000000000000215 /* GoogleNetworkSession.swift */,
+				A00000000000000000000216 /* KeychainTokenStore.swift */,
+				A00000000000000000000217 /* GmailOAuthClient.swift */,
+				A00000000000000000000218 /* GmailAPIClient.swift */,
+				A00000000000000000000219 /* CardCompanyBillingParsers.swift */,
+				A0000000000000000000021A /* GmailCardRules.swift */,
+				A0000000000000000000021B /* GmailIntegrationManager.swift */,
+				A0000000000000000000021C /* GmailIntegrationViews.swift */,
+				A00000000000000000000220 /* AdConfiguration.swift */,
+				A00000000000000000000221 /* AdvertisingManager.swift */,
+				A00000000000000000000222 /* AnchoredAdaptiveBannerView.swift */,
+				A0000000000000000000021D /* Info.plist */,
+				A00000000000000000000223 /* AppConfiguration.xcconfig */,
+				A0000000000000000000021E /* GmailOAuth.xcconfig */,
+				A00000000000000000000224 /* AdMob.xcconfig */,
+				A00000000000000000000225 /* AdMob.local.xcconfig.example */,
+				A00000000000000000000226 /* ProProductConfiguration.swift */,
+				A00000000000000000000227 /* ProEntitlement.swift */,
+				A00000000000000000000228 /* ProStore.swift */,
+				A00000000000000000000229 /* ThemeManager.swift */,
+				A0000000000000000000022A /* ProPaywallView.swift */,
+				A0000000000000000000022B /* StoreKit.xcconfig */,
+				A0000000000000000000022C /* MailModels.swift */,
+				A0000000000000000000022D /* ICloudMailCredentialStore.swift */,
+				A0000000000000000000022E /* ICloudIMAPClient.swift */,
+				A0000000000000000000022F /* MailIntegrationViews.swift */,
+				A0000000000000000000020F /* Assets.xcassets */,
+				A00000000000000000000213 /* PrivacyInfo.xcprivacy */,
+			);
+			path = CardBills;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000703 /* CardBillsTests */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000210 /* EmailBillingParserTests.swift */,
+				A0000000000000000000021F /* GmailImportTests.swift */,
+				A00000000000000000000230 /* ICloudMailTests.swift */,
+			);
+			path = CardBillsTests;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000704 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000211 /* CardBills.app */,
+				A00000000000000000000212 /* CardBillsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A00000000000000000000501 /* CardBills */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A00000000000000000000802 /* Build configuration list for PBXNativeTarget "CardBills" */;
+			buildPhases = (
+				A00000000000000000000901 /* Sources */,
+				A00000000000000000000601 /* Frameworks */,
+				A00000000000000000000903 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CardBills;
+			packageProductDependencies = (
+				A00000000000000000000C01 /* GoogleMobileAds */,
+				A00000000000000000000C02 /* GoogleUserMessagingPlatform */,
+			);
+			productName = CardBills;
+			productReference = A00000000000000000000211 /* CardBills.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A00000000000000000000502 /* CardBillsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A00000000000000000000803 /* Build configuration list for PBXNativeTarget "CardBillsTests" */;
+			buildPhases = (
+				A00000000000000000000902 /* Sources */,
+				A00000000000000000000602 /* Frameworks */,
+				A00000000000000000000904 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A00000000000000000000302 /* PBXTargetDependency */,
+			);
+			name = CardBillsTests;
+			productName = CardBillsTests;
+			productReference = A00000000000000000000212 /* CardBillsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A00000000000000000000401 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					A00000000000000000000501 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					A00000000000000000000502 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = A00000000000000000000501;
+					};
+				};
+			};
+			buildConfigurationList = A00000000000000000000801 /* Build configuration list for PBXProject "CardBills" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = ja;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				ja,
+				Base,
+			);
+			mainGroup = A00000000000000000000701;
+			packageReferences = (
+				A00000000000000000000B01 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				A00000000000000000000B02 /* XCRemoteSwiftPackageReference "swift-package-manager-google-user-messaging-platform" */,
+			);
+			productRefGroup = A00000000000000000000704 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A00000000000000000000501 /* CardBills */,
+				A00000000000000000000502 /* CardBillsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A00000000000000000000903 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0000000000000000000010F /* Assets.xcassets in Resources */,
+				A00000000000000000000111 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A00000000000000000000904 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A00000000000000000000901 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A00000000000000000000101 /* CardBillsApp.swift in Sources */,
+				A00000000000000000000102 /* PaymentCard.swift in Sources */,
+				A00000000000000000000103 /* Bill.swift in Sources */,
+				A00000000000000000000104 /* EmailBillingParser.swift in Sources */,
+				A00000000000000000000105 /* DemoDataSeeder.swift in Sources */,
+				A00000000000000000000106 /* AppSupport.swift in Sources */,
+				A00000000000000000000107 /* RootTabView.swift in Sources */,
+				A00000000000000000000108 /* HomeView.swift in Sources */,
+				A00000000000000000000109 /* BillEditorView.swift in Sources */,
+				A0000000000000000000010A /* EmailImportView.swift in Sources */,
+				A0000000000000000000010B /* CardsView.swift in Sources */,
+				A0000000000000000000010C /* CardEditorView.swift in Sources */,
+				A0000000000000000000010D /* HistoryView.swift in Sources */,
+				A0000000000000000000010E /* SettingsView.swift in Sources */,
+				A00000000000000000000112 /* GmailOAuthConfiguration.swift in Sources */,
+				A00000000000000000000113 /* GoogleNetworkSession.swift in Sources */,
+				A00000000000000000000114 /* KeychainTokenStore.swift in Sources */,
+				A00000000000000000000115 /* GmailOAuthClient.swift in Sources */,
+				A00000000000000000000116 /* GmailAPIClient.swift in Sources */,
+				A00000000000000000000117 /* CardCompanyBillingParsers.swift in Sources */,
+				A00000000000000000000118 /* GmailCardRules.swift in Sources */,
+				A00000000000000000000119 /* GmailIntegrationManager.swift in Sources */,
+				A0000000000000000000011A /* GmailIntegrationViews.swift in Sources */,
+				A0000000000000000000011C /* AdConfiguration.swift in Sources */,
+				A0000000000000000000011D /* AdvertisingManager.swift in Sources */,
+				A0000000000000000000011E /* AnchoredAdaptiveBannerView.swift in Sources */,
+				A00000000000000000000121 /* ProProductConfiguration.swift in Sources */,
+				A00000000000000000000122 /* ProEntitlement.swift in Sources */,
+				A00000000000000000000123 /* ProStore.swift in Sources */,
+				A00000000000000000000124 /* ThemeManager.swift in Sources */,
+				A00000000000000000000125 /* ProPaywallView.swift in Sources */,
+				A00000000000000000000126 /* MailModels.swift in Sources */,
+				A00000000000000000000127 /* ICloudMailCredentialStore.swift in Sources */,
+				A00000000000000000000128 /* ICloudIMAPClient.swift in Sources */,
+				A00000000000000000000129 /* MailIntegrationViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A00000000000000000000902 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A00000000000000000000110 /* EmailBillingParserTests.swift in Sources */,
+				A0000000000000000000011B /* GmailImportTests.swift in Sources */,
+				A0000000000000000000012A /* ICloudMailTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A00000000000000000000302 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A00000000000000000000501 /* CardBills */;
+			targetProxy = A00000000000000000000301 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A00000000000000000000A01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A00000000000000000000A02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A00000000000000000000A03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A00000000000000000000223 /* AppConfiguration.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = CardBills/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.example.mailledger;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A00000000000000000000A04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A00000000000000000000223 /* AppConfiguration.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = CardBills/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.example.mailledger;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		A00000000000000000000A05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.example.mailledger.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CardBills.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CardBills";
+			};
+			name = Debug;
+		};
+		A00000000000000000000A06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.example.mailledger.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CardBills.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CardBills";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A00000000000000000000801 /* Build configuration list for PBXProject "CardBills" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A00000000000000000000A01 /* Debug */,
+				A00000000000000000000A02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A00000000000000000000802 /* Build configuration list for PBXNativeTarget "CardBills" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A00000000000000000000A03 /* Debug */,
+				A00000000000000000000A04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A00000000000000000000803 /* Build configuration list for PBXNativeTarget "CardBillsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A00000000000000000000A05 /* Debug */,
+				A00000000000000000000A06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A00000000000000000000B01 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.9.0;
+			};
+		};
+		A00000000000000000000B02 /* XCRemoteSwiftPackageReference "swift-package-manager-google-user-messaging-platform" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-user-messaging-platform.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A00000000000000000000C01 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A00000000000000000000B01 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+		A00000000000000000000C02 /* GoogleUserMessagingPlatform */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A00000000000000000000B02 /* XCRemoteSwiftPackageReference "swift-package-manager-google-user-messaging-platform" */;
+			productName = GoogleUserMessagingPlatform;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = A00000000000000000000401 /* Project object */;
+}

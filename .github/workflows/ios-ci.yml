@@ -1,0 +1,173 @@
+name: iOS CI
+
+# Windows から push → GitHub の "Actions" タブでこのワークフローの成否・ログ・
+# アーティファクト（TestResults.xcresult）を確認できる。
+#
+# 前提:
+#  - runner イメージ macos-26（Xcode 26 系を同梱）。利用不可の環境では macos-15 / macos-latest に変更。
+#  - Gmail / AdMob / StoreKit の本番秘密値は GitHub Secrets（下記 env）に置く前提。
+#    Secrets 未設定でも、各 .xcconfig の安全な既定値（Google 公式テスト ID 等）で
+#    Debug/Release ビルドと XCTest 全件が通る（純ロジックテストは秘密値不要）。
+#  - 署名は不要。Simulator ビルド／テストと未署名 device ビルドまでを実行する
+#    （archive / 署名 / TestFlight 配布は対象外）。
+
+on:
+  push:
+    branches: ["**"]
+    tags-ignore: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ios-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PROJECT: CardBills.xcodeproj
+  SCHEME: CardBills
+
+jobs:
+  build-test:
+    name: Debug build + XCTest + Release build (unsigned)
+    runs-on: macos-26
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode 26
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          # "26" = インストール済みの Xcode 26 系（26.x）の最新を明示選択。
+          xcode-version: "26"
+
+      - name: Toolchain versions
+        run: |
+          set -euxo pipefail
+          sudo xcode-select -p
+          xcodebuild -version
+          swift --version
+
+      # 秘密値は「設定されていれば」xcodebuild のビルド設定として上書き注入する。
+      # 値は GitHub が自動でログマスク（***）する。未設定なら空文字 → 何も渡さず既定値を使用。
+      - name: Assemble optional secret build-settings
+        id: secrets
+        env:
+          GMAIL_OAUTH_CLIENT_ID: ${{ secrets.GMAIL_OAUTH_CLIENT_ID }}
+          GMAIL_OAUTH_REDIRECT_SCHEME: ${{ secrets.GMAIL_OAUTH_REDIRECT_SCHEME }}
+          ADMOB_APP_ID: ${{ secrets.ADMOB_APP_ID }}
+          ADMOB_HOME_BANNER_AD_UNIT_ID: ${{ secrets.ADMOB_HOME_BANNER_AD_UNIT_ID }}
+          PRO_PRODUCT_ID: ${{ secrets.PRO_PRODUCT_ID }}
+        run: |
+          set -euo pipefail
+          XCB=""
+          add() { if [ -n "${2:-}" ]; then XCB="$XCB $1=$2"; fi; }
+          add GMAIL_OAUTH_CLIENT_ID        "${GMAIL_OAUTH_CLIENT_ID:-}"
+          add GMAIL_OAUTH_REDIRECT_SCHEME  "${GMAIL_OAUTH_REDIRECT_SCHEME:-}"
+          add ADMOB_APP_ID                 "${ADMOB_APP_ID:-}"
+          add ADMOB_HOME_BANNER_AD_UNIT_ID "${ADMOB_HOME_BANNER_AD_UNIT_ID:-}"
+          add PRO_PRODUCT_ID               "${PRO_PRODUCT_ID:-}"
+          echo "xcb=$XCB" >> "$GITHUB_OUTPUT"
+          if [ -n "$XCB" ]; then
+            echo "Injecting secret build-settings (values masked in logs)."
+          else
+            echo "No secrets set — using committed safe defaults in *.xcconfig."
+          fi
+
+      - name: Cache SwiftPM
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/Library/Caches/org.swift.swiftpm
+            ~/Library/Developer/Xcode/DerivedData/**/SourcePackages
+          key: spm-${{ runner.os }}-${{ hashFiles('CardBills.xcodeproj/project.pbxproj') }}
+          restore-keys: spm-${{ runner.os }}-
+
+      - name: Resolve Swift packages (GoogleMobileAds / UMP — public, no auth)
+        run: |
+          set -euxo pipefail
+          xcodebuild -resolvePackageDependencies -project "$PROJECT" -scheme "$SCHEME"
+
+      - name: Install xcbeautify
+        run: brew install xcbeautify
+
+      - name: Pick an iOS Simulator
+        id: sim
+        run: |
+          set -euo pipefail
+          UDID=$(xcrun simctl list devices available -j | python3 -c "import json,sys; d=json.load(sys.stdin)['devices']; c=[x for k,v in d.items() if 'iOS' in k for x in v if x.get('isAvailable') and x['name'].startswith('iPhone')]; c.sort(key=lambda x: x['name']); print(c[-1]['udid'] if c else '')")
+          test -n "$UDID"
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+          echo "Using simulator: $UDID"
+          xcrun simctl list devices available | grep -i "iphone" || true
+
+      # Debug build = build-for-testing（アプリ＋テストバンドルを Debug でコンパイル）。
+      - name: Debug build (simulator, no code signing)
+        run: |
+          set -o pipefail
+          xcodebuild build-for-testing \
+            -project "$PROJECT" -scheme "$SCHEME" -configuration Debug \
+            -destination "platform=iOS Simulator,id=${{ steps.sim.outputs.udid }}" \
+            -skipPackagePluginValidation \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+            ${{ steps.secrets.outputs.xcb }} \
+            | xcbeautify --renderer github-actions
+
+      - name: XCTest — all (CardBillsTests, secrets not required)
+        run: |
+          set -o pipefail
+          xcodebuild test-without-building \
+            -project "$PROJECT" -scheme "$SCHEME" -configuration Debug \
+            -destination "platform=iOS Simulator,id=${{ steps.sim.outputs.udid }}" \
+            -resultBundlePath TestResults.xcresult \
+            -skipPackagePluginValidation \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+            ${{ steps.secrets.outputs.xcb }} \
+            | xcbeautify --renderer github-actions
+
+      - name: Test summary → job summary
+        if: always()
+        run: |
+          {
+            echo "### XCTest 結果"
+            xcrun xcresulttool get test-results summary --path TestResults.xcresult 2>/dev/null \
+              || xcrun xcresulttool get --legacy --format json --path TestResults.xcresult 2>/dev/null \
+              || echo "(xcresult summary ツールがこの Xcode で利用不可。アーティファクトの .xcresult を参照)"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # Release 構成をコンパイル。#if DEBUG（診断ログ / MailCheckMetrics.finish の DEBUG ブロック等）が
+      # Release で正しく除外されコンパイルが通ることを検証する。Simulator なので署名不要。
+      - name: Release build (simulator)
+        run: |
+          set -o pipefail
+          xcodebuild build \
+            -project "$PROJECT" -scheme "$SCHEME" -configuration Release \
+            -destination "platform=iOS Simulator,id=${{ steps.sim.outputs.udid }}" \
+            -skipPackagePluginValidation \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+            ${{ steps.secrets.outputs.xcb }} \
+            | xcbeautify --renderer github-actions
+
+      # 未署名の device(arm64) Release ビルド。アーキ差・リンク・Release 最適化のみ検証。
+      # 署名・プロファイル・archive は行わない。
+      - name: Release build (device arm64, unsigned — compile/link only)
+        run: |
+          set -o pipefail
+          xcodebuild build \
+            -project "$PROJECT" -scheme "$SCHEME" -configuration Release \
+            -destination "generic/platform=iOS" \
+            -skipPackagePluginValidation \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" PROVISIONING_PROFILE_SPECIFIER="" \
+            ${{ steps.secrets.outputs.xcb }} \
+            | xcbeautify --renderer github-actions
+
+      - name: Upload test results (.xcresult)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: TestResults-xcresult
+          path: TestResults.xcresult
+          if-no-files-found: warn
+          retention-days: 14
