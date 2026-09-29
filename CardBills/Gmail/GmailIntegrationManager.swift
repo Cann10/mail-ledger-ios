@@ -403,7 +403,7 @@ final class MailIntegrationManager: ObservableObject {
     }
 
     init(
-        oauthClient: GmailOAuthClient = GmailOAuthClient(),
+        oauthClient: GmailOAuthClient? = nil,
         apiClient: GmailAPIClient = GmailAPIClient(),
         iCloudCredentialStore: ICloudMailCredentialStore = ICloudMailCredentialStore(),
         iCloudClient: ICloudIMAPClient = ICloudIMAPClient(),
@@ -413,7 +413,8 @@ final class MailIntegrationManager: ObservableObject {
         defaults: UserDefaults = .standard,
         now: @escaping () -> Date = Date.init
     ) {
-        self.oauthClient = oauthClient
+        let resolvedOAuthClient = oauthClient ?? GmailOAuthClient()
+        self.oauthClient = resolvedOAuthClient
         self.apiClient = apiClient
         self.iCloudCredentialStore = iCloudCredentialStore
         self.iCloudClient = iCloudClient
@@ -422,7 +423,7 @@ final class MailIntegrationManager: ObservableObject {
         self.automaticCheckPolicy = automaticCheckPolicy
         self.defaults = defaults
         self.now = now
-        accounts = oauthClient.storedAccounts()
+        accounts = resolvedOAuthClient.storedAccounts()
         iCloudAccounts = (try? iCloudCredentialStore.loadAccounts()) ?? []
         let storedLastCheckedAt = (defaults.object(forKey: DefaultsKey.lastCheckedAt) as? Date)
             ?? (defaults.object(forKey: DefaultsKey.legacyLastCheckedAt) as? Date)
